@@ -1,0 +1,66 @@
+.fa-info-circle {
+	&:hover {
+		color: darken($white, 10%);
+		cursor: pointer;
+	}
+}
+
+#info {
+	color: $white;
+	font-weight: 300;
+
+	a {
+		color: $white;
+		text-decoration: underline;
+		&:hover {
+			color: darken($white, 20%);
+		}
+	}
+	.info-enter-active,
+	.info-leave-active {
+		transition: all 0.6s ease;
+	}
+	.info-enter,
+	.info-leave-to {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+.navbar-brand {
+	font-size: 1.8rem;
+	font-weight: 900;
+	letter-spacing: 1px;
+}
+
+.navbar {
+	padding: 0.5rem 0;
+}
+
+.navbar-main {
+	background-color: $blueGray;
+	padding: 0.5em;
+
+	.app-container {
+		display: flex;
+	}
+}
+
+.total-weight {
+	margin: 20px 0;
+
+	.navbar.navbar-total-weight {
+		background-color: #c4c4c4;
+		border-radius: 0.3rem;
+		padding: 0.5rem 0.5rem 0.5rem 1rem;
+	}
+
+	h1 {
+		line-height: 1;
+		margin-bottom: 0;
+
+		span {
+			font-size: 20px;
+		}
+	}
+}

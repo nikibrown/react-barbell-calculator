@@ -1,0 +1,34 @@
+footer {
+	color: $white;
+	margin-top: 40px;
+	.navbar {
+		background-color: $blueGray;
+		padding: 15px;
+	}
+
+	a {
+		color: $white;
+		&:hover {
+			color: darken($white, 10%);
+		}
+	}
+}
+
+.credits {
+	color: $white;
+	margin-bottom: 0;
+	text-align: center;
+	width: 100%;
+
+	i {
+		font-size: 22px;
+	}
+
+	span {
+		margin: 0 5px;
+	}
+
+	a {
+		display: inline;
+	}
+}
