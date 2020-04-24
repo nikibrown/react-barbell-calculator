@@ -147,9 +147,13 @@ const Calculator = (props) => {
 								dangerouslySetInnerHTML={{
 									__html: textContent.madeWidth,
 								}}></span>
-							<FontAwesomeIcon icon={["fab", "github"]} />
-
 							<FontAwesomeIcon icon={["fab", "vuejs"]} />
+							<a
+								href="https://github.com/nikibrown/vue-barbell-calculator"
+								target="_blank"
+								rel="noopener noreferrer">
+								<FontAwesomeIcon icon={["fab", "github"]} />
+							</a>
 						</p>
 					</div>
 				</nav>
