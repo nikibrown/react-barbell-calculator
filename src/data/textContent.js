@@ -2,11 +2,11 @@ export const textContent = {
 	appTitle: "Barbell Calculator",
 	madeWidth: `<span>Made with:</span>
 						<span>
-							<i class="fab fa-vuejs"></i>
+							<FontAwesomeIcon icon={["fab", "vuejs"]} size="6x" />
 						</span>
 						<span>
 							<a href="https://github.com/nikibrown/vue-barbell-calculator" target="_blank">
-								<i class="fab fa-github"></i>
+								<FontAwesomeIcon icon={["fab", "github"]} size="6x" />
 							</a>
 						</span>
 						`,

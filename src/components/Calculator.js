@@ -6,6 +6,13 @@ import { unitItems } from "../assets/data/units";
 
 import Unit from "./Unit";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faInfoCircle, faUndo } from "@fortawesome/free-solid-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+
+library.add(fab, faInfoCircle, faUndo);
+
 const Calculator = (props) => {
 	return (
 		<div id="app">
@@ -30,7 +37,8 @@ const Calculator = (props) => {
 							</span>
 						</h1>
 						<button className="btn btn-link" type="button">
-							<i className="fas fa-info-circle"></i>
+							{/* <i className="fas fa-info-circle"></i> */}
+							<FontAwesomeIcon icon={faInfoCircle} />
 						</button>
 					</div>
 				</nav>
@@ -48,7 +56,7 @@ const Calculator = (props) => {
 							<button
 								// @click="resetTotalWeight"
 								className="btn btn-secondary btn-danger btn-sm">
-								<i className="fas fa-undo"></i>
+								<FontAwesomeIcon icon={faUndo} />
 							</button>
 						</nav>
 					</div>
@@ -62,11 +70,11 @@ const Calculator = (props) => {
 						aria-label="Pounds or Kilos">
 						{unitItems.map((unit) => (
 							<Unit
+								bsClasses={unit.bsClasses}
 								key={unit.unitLabel}
 								unitLabel={unit.unitLabel}
-								className={unit.bsClasses}
 								selected={unit.selected}
-								disabled={unit.disabled}
+								isDisabled={unit.isDisabled}
 							/>
 						))}
 
@@ -137,11 +145,15 @@ const Calculator = (props) => {
 			<footer>
 				<nav className="navbar navbar-dark">
 					<div className="app-container">
-						<p
-							className="credits"
-							dangerouslySetInnerHTML={{
-								__html: textContent.madeWidth,
-							}}></p>
+						<p className="credits">
+							<span
+								dangerouslySetInnerHTML={{
+									__html: textContent.madeWidth,
+								}}></span>
+							<FontAwesomeIcon icon={["fab", "github"]} />
+
+							<FontAwesomeIcon icon={["fab", "vuejs"]} />
+						</p>
 					</div>
 				</nav>
 			</footer>
