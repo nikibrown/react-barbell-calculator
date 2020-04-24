@@ -9,6 +9,14 @@
 	color: $white;
 	font-weight: 300;
 
+	&.hide {
+		display: none;
+	}
+
+	&.show {
+		display: block;
+	}
+
 	a {
 		color: $white;
 		text-decoration: underline;

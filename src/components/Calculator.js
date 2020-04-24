@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../assets/scss/global.scss";
 import { textContent } from "../assets/data/textContent";
 import { settings } from "../assets/data/settings";
@@ -18,10 +18,11 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 library.add(fab, faInfoCircle, faUndo);
 
 const Calculator = (props) => {
+	const [infoVisible, setInfoVisibility] = useState(false);
+
 	return (
 		<div id="app">
-			<header id="info">
-				{/* <transition name="info"> */}
+			<header className={infoVisible ? "show" : "hide"} id="info">
 				<nav className="navbar navbar-dark bg-dark">
 					<div className="app-container">
 						<p
@@ -30,7 +31,6 @@ const Calculator = (props) => {
 							}}></p>
 					</div>
 				</nav>
-				{/* </transition> */}
 			</header>
 			<header>
 				<nav className="navbar navbar-dark navbar-main">
@@ -40,8 +40,10 @@ const Calculator = (props) => {
 								{textContent.appTitle}
 							</span>
 						</h1>
-						<button className="btn btn-link" type="button">
-							{/* <i className="fas fa-info-circle"></i> */}
+						<button
+							className="btn btn-link"
+							onClick={() => setInfoVisibility(!infoVisible)}
+							type="button">
 							<FontAwesomeIcon icon={faInfoCircle} />
 						</button>
 					</div>

@@ -5,6 +5,5 @@ export const settings = {
 	pounds: true,
 	kilos: false,
 	showSettings: false,
-	showInfo: false,
 	totalWeight: 0,
 };
