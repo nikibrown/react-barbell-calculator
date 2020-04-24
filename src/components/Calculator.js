@@ -3,8 +3,10 @@ import "../assets/scss/global.scss";
 import { textContent } from "../assets/data/textContent";
 import { settings } from "../assets/data/settings";
 import { unitItems } from "../assets/data/units";
+import { barbellItems } from "../assets/data/barbells";
 
 import Unit from "./Unit";
+import Barbell from "./Barbell";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -77,16 +79,6 @@ const Calculator = (props) => {
 								isDisabled={unit.isDisabled}
 							/>
 						))}
-
-						{/* <Unit
-						v-for="(unit, key) in unitItems"
-						@click="selectUnits(key)"
-						:className="unit.bsClasses"
-						:disabled="unit.isDisabled"
-						:key="key"
-						:selected="unit.selected"
-						:unitLabel="unit.unitLabel"
-					/> */}
 					</div>
 					<h5>{textContent.barbellHeadline}</h5>
 					{/* <p v-if="settings.barbellError" className="error">
@@ -98,16 +90,16 @@ const Calculator = (props) => {
 								className="barbell-group"
 								role="group"
 								aria-label="Select barbell weight">
-								{/* <Barbell
-								v-for="(barbell, key) in barbellItems"
-								:className="barbell.bsClasses"
-								@click="addBarbellWeight(key)"
-								:disabled="barbell.isDisabled"
-								:key="key"
-								:text="barbell.text"
-								:poundWeight="barbell.poundWeight"
-								:kiloWeight="barbell.kiloWeight"
-							/> */}
+								{barbellItems.map((barbell) => (
+									<Barbell
+										bsClasses={barbell.bsClasses}
+										isDisabled={barbell.isDisabled}
+										key={barbell.poundWeight}
+										kiloWeight={barbell.kiloWeight}
+										poundWeight={barbell.poundWeight}
+										text={barbell.text}
+									/>
+								))}
 							</div>
 						</ul>
 					</div>
