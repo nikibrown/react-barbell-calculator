@@ -4,9 +4,11 @@ import { textContent } from "../assets/data/textContent";
 import { settings } from "../assets/data/settings";
 import { unitItems } from "../assets/data/units";
 import { barbellItems } from "../assets/data/barbells";
+import { smallPlates, largePlates } from "../assets/data/plates";
 
 import Unit from "./Unit";
 import Barbell from "./Barbell";
+import Plate from "./Plate";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -107,30 +109,31 @@ const Calculator = (props) => {
 					<h5>{textContent.platesHeadline}</h5>
 
 					<div className="form-group">
-						{/* <ul className="plates large-plates">
-						<Plate
-							v-for="(plate, key) in largePlates"
-							:className="plate.bsClasses"
-							@click="addLargePlateWeight(key)"
-							:isOnBarbell="plate.isOnBarbell"
-							:key="key"
-							:plateCount="plate.plateCount"
-							:poundWeight="plate.poundWeight"
-							:kiloWeight="plate.kiloWeight"
-						/>
-					</ul> */}
-						{/* <ul className="plates small-plates">
-						<Plate
-							v-for="(plate, key) in smallPlates"
-							:className="plate.bsClasses"
-							@click="addSmallPlateWeight(key)"
-							:isOnBarbell="plate.isOnBarbell"
-							:key="key"
-							:plateCount="plate.plateCount"
-							:poundWeight="plate.poundWeight"
-							:kiloWeight="plate.kiloWeight"
-						/>
-					</ul> */}
+						<ul className="plates large-plates">
+							{largePlates.map((plate) => (
+								<Plate
+									bsClasses={plate.bsClasses}
+									isOnBarbell={plate.isOnBarbell}
+									key={plate.poundWeight}
+									kiloWeight={plate.kiloWeight}
+									plateCount={plate.plateCount}
+									poundWeight={plate.poundWeight}
+								/>
+							))}
+						</ul>
+
+						<ul className="plates small-plates">
+							{smallPlates.map((plate) => (
+								<Plate
+									bsClasses={plate.bsClasses}
+									isOnBarbell={plate.isOnBarbell}
+									key={plate.poundWeight}
+									kiloWeight={plate.kiloWeight}
+									plateCount={plate.plateCount}
+									poundWeight={plate.poundWeight}
+								/>
+							))}
+						</ul>
 					</div>
 				</div>
 			</main>
