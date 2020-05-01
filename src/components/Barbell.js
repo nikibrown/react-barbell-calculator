@@ -1,10 +1,6 @@
 import React from "react";
 
 const Barbell = (props) => {
-	// const clickHandler = () => {
-	// 	console.log(props.poundWeight + " was clicked");
-	// };
-
 	return (
 		<div className="form-check form-check-inline">
 			<input

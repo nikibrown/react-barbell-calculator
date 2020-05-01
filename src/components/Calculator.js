@@ -61,7 +61,52 @@ const barbellItems = [
 		name: "barbell-radio-selection",
 		defaultChecked: false,
 	},
+	{
+		weight: 20,
+		barbellUnitLabel: "kg",
+		id: "barbell-kilos-20",
+		name: "barbell-radio-selection",
+		defaultChecked: false,
+	},
+	{
+		weight: 15,
+		barbellUnitLabel: "kg",
+		id: "barbell-kilos-15",
+		name: "barbell-radio-selection",
+		defaultChecked: false,
+	},
+	{
+		weight: 6.8,
+		barbellUnitLabel: "kg",
+		id: "barbell-kilos-6-8",
+		name: "barbell-radio-selection",
+		defaultChecked: false,
+	},
 ];
+
+// const barbellItemsKilos = [
+// 	{
+// 		weight: 20,
+// 		barbellUnitLabel: "kg",
+// 		id: "barbell-kilos-20",
+// 		name: "barbell-radio-selection",
+// 		defaultChecked: true,
+// 	},
+// 	{
+// 		weight: 15,
+// 		barbellUnitLabel: "kg",
+// 		id: "barbell-kilos-15",
+// 		name: "barbell-radio-selection",
+// 		defaultChecked: false,
+// 	},
+// 	{
+// 		weight: 6.8,
+// 		barbellUnitLabel: "kg",
+// 		id: "barbell-kilos-6-8",
+// 		name: "barbell-radio-selection",
+// 		defaultChecked: false,
+// 	},
+// ];
 
 const Calculator = (props) => {
 	// state for info section
