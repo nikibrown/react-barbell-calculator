@@ -62,6 +62,13 @@ const Calculator = (props) => {
 		});
 	};
 
+	let unitLabel;
+	if (unitSelection.selectedUnit === "Pounds") {
+		unitLabel = <span className="total-weight-pounds">lb</span>;
+	} else {
+		unitLabel = <span className="total-weight-kilos">kg</span>;
+	}
+
 	return (
 		<div id="app">
 			<header
@@ -99,8 +106,8 @@ const Calculator = (props) => {
 						<nav className="navbar navbar-light navbar-total-weight">
 							<h1>
 								{settings.totalWeight}
-								<span className="total-weight-pounds">lb</span>
-								<span className="total-weight-kilos">kg</span>
+
+								{unitLabel}
 							</h1>
 
 							<button
