@@ -1,19 +1,35 @@
 import React from "react";
 
 const Unit = (props) => {
-	const clickHandler = () => {
-		console.log(props.unitLabel + " was clicked");
-	};
+	// const [unitSelection, setUnitSelection] = useState({
+	// 	pounds: null,
+	// 	kilos: null,
+	// 	isSelected: false,
+	// });
+
+	// const selectUnits = () => {
+	// 	setUnitSelection({
+	// 		...unitSelection,
+	// 		isSelected: !unitSelection.isSelected,
+	// 	});
+	// };
 
 	return (
-		<button
-			className={props.bsClasses}
-			onClick={clickHandler}
-			disabled={props.isDisabled}
-			selected={props.selected}>
-			<span className="unit-selected">✓</span>
-			<span>{props.unitLabel}</span>
-		</button>
+		<div className="form-check form-check-inline">
+			<input
+				//onChange={selectUnits}
+				onChange={props.handleUnitChange}
+				className="form-check-input"
+				type="radio"
+				name={props.name}
+				id={props.id}
+				value={props.unitLabel}
+				defaultChecked={props.defaultChecked}
+			/>
+			<label className="form-check-label" htmlFor={props.id}>
+				{props.unitLabel}
+			</label>
+		</div>
 	);
 };
 

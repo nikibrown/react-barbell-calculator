@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "../assets/scss/global.scss";
 import { textContent } from "../assets/data/textContent";
 import { settings } from "../assets/data/settings";
-import { unitItems } from "../assets/data/units";
-import { barbellItems } from "../assets/data/barbells";
-import { smallPlates, largePlates } from "../assets/data/plates";
+// import { unitItems } from "../assets/data/units";
+// import { barbellItems } from "../assets/data/barbells";
+// import { smallPlates, largePlates } from "../assets/data/plates";
 
 import Unit from "./Unit";
-import Barbell from "./Barbell";
-import Plate from "./Plate";
+// import Barbell from "./Barbell";
+// import Plate from "./Plate";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -17,8 +17,41 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 
 library.add(fab, faInfoCircle, faUndo);
 
+const unitItems = [
+	{
+		bsClasses: "btn btn-md btn-secondary unit-pounds",
+		unitLabel: "Pounds",
+		selected: true,
+		isDisabled: true,
+		name: "unit-radio-selection",
+		id: "unit-radio-selection-pounds",
+		defaultChecked: true,
+	},
+	{
+		foo: "foobar2",
+		bsClasses: "btn btn-md btn-secondary unit-kilos",
+		unitLabel: "Kilos",
+		selected: false,
+		isDisabled: true,
+		name: "unit-radio-selection",
+		id: "unit-radio-selection-kilos",
+		isChecked: false,
+	},
+];
+
 const Calculator = (props) => {
 	const [infoVisible, setInfoVisibility] = useState(false);
+
+	const [unitSelection, setUnitSelection] = useState({
+		selectedUnit: "Pounds",
+	});
+
+	const handleUnitChange = (changeEvent) => {
+		setUnitSelection({
+			...unitSelection,
+			selectedUnit: changeEvent.target.value,
+		});
+	};
 
 	return (
 		<div id="app">
@@ -76,19 +109,20 @@ const Calculator = (props) => {
 						aria-label="Pounds or Kilos">
 						{unitItems.map((unit) => (
 							<Unit
-								bsClasses={unit.bsClasses}
+								handleUnitChange={handleUnitChange}
 								key={unit.unitLabel}
 								unitLabel={unit.unitLabel}
-								selected={unit.selected}
-								isDisabled={unit.isDisabled}
+								name={unit.name}
+								id={unit.id}
+								defaultChecked={unit.defaultChecked}
 							/>
 						))}
 					</div>
-					<h5>{textContent.barbellHeadline}</h5>
+					{/* <h5>{textContent.barbellHeadline}</h5> */}
 					{/* <p v-if="settings.barbellError" className="error">
 					{{ textContent.barbellErrorText }}
-				</p> */}
-					<div className="form-group">
+					</p> */}
+					{/* <div className="form-group">
 						<ul className="barbells">
 							<div
 								className="barbell-group"
@@ -106,11 +140,11 @@ const Calculator = (props) => {
 								))}
 							</div>
 						</ul>
-					</div>
+					</div> */}
 
 					<h5>{textContent.platesHeadline}</h5>
 
-					<div className="form-group">
+					{/* <div className="form-group">
 						<ul className="plates large-plates">
 							{largePlates.map((plate) => (
 								<Plate
@@ -136,7 +170,7 @@ const Calculator = (props) => {
 								/>
 							))}
 						</ul>
-					</div>
+					</div> */}
 				</div>
 			</main>
 			<footer>
@@ -147,7 +181,7 @@ const Calculator = (props) => {
 								dangerouslySetInnerHTML={{
 									__html: textContent.madeWidth,
 								}}></span>
-							<FontAwesomeIcon icon={["fab", "vuejs"]} />
+							<FontAwesomeIcon icon={["fab", "react"]} />
 							<a
 								href="https://github.com/nikibrown/vue-barbell-calculator"
 								target="_blank"

@@ -4,6 +4,8 @@ export const unitItems = [
 		unitLabel: "Pounds",
 		selected: true,
 		isDisabled: true,
+		name: "unit-radio-selection",
+		id: "unit-radio-selection-pounds",
 	},
 	{
 		foo: "foobar2",
@@ -11,5 +13,7 @@ export const unitItems = [
 		unitLabel: "Kilos",
 		selected: false,
 		isDisabled: true,
+		name: "unit-radio-selection",
+		id: "unit-radio-selection-kilos",
 	},
 ];
