@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import "../assets/scss/global.scss";
 import { textContent } from "../assets/data/textContent";
 import { settings } from "../assets/data/settings";
-// import { unitItems } from "../assets/data/units";
-// import { barbellItems } from "../assets/data/barbells";
-// import { smallPlates, largePlates } from "../assets/data/plates";
 
 import Unit from "./Unit";
 import Barbell from "./Barbell";
-// import Plate from "./Plate";
+import Plate from "./Plate";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -16,6 +13,8 @@ import { faInfoCircle, faUndo } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 
 library.add(fab, faInfoCircle, faUndo);
+
+// Data!
 
 const unitItems = [
 	{
@@ -87,6 +86,144 @@ const barbellItemsKilos = [
 	},
 ];
 
+const largeKiloPlates = [
+	{
+		plateClasses: "kilo-weight-25 weight-lg",
+		plateCount: 0,
+		weight: 25,
+		weightLabel: "kg",
+	},
+	{
+		plateClasses: "kilo-weight-20 weight-lg",
+		weight: 20,
+		weightLabel: "kg",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "kilo-weight-15 weight-lg",
+		weight: 15,
+		weightLabel: "kg",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "kilo-weight-10 weight-lg",
+		weight: 10,
+		weightLabel: "kg",
+		plateCount: 0,
+	},
+];
+
+const smallKiloPlates = [
+	{
+		plateClasses: "kilo-weight-5 weight-sm",
+		weight: 5,
+		weightLabel: "kg",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "kilo-weight-2-5 weight-sm",
+		weight: 2.5,
+		weightLabel: "kg",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "kilo-weight-2 weight-sm",
+		weight: 2,
+		weightLabel: "kg",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "kilo-weight-1 weight-sm",
+		weight: 1,
+		weightLabel: "kg",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "kilo-weight-0-5 weight-sm",
+		weight: 0.5,
+		weightLabel: "kg",
+		plateCount: 0,
+	},
+];
+
+const largePoundPlates = [
+	{
+		plateClasses: "pound-weight-55 weight-lg",
+		weight: 55,
+		weightLabel: "lb",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "pound-weight-45 weight-lg",
+		weight: 45,
+		weightLabel: "lb",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "pound-weight-35 weight-lg",
+		weight: 35,
+		weightLabel: "lb",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "pound-weight-25 weight-lg",
+		weight: 25,
+		weightLabel: "lb",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "pound-weight-15 weight-lg",
+		weight: 15,
+		weightLabel: "lb",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "pound-weight-10 weight-lg",
+		weight: 10,
+		weightLabel: "lb",
+		plateCount: 0,
+	},
+];
+
+const smallPoundPlates = [
+	{
+		plateClasses: "pound-weight-5 weight-sm",
+		weight: 5,
+		weightLabel: "lb",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "pound-weight-2-5 weight-sm",
+		weight: 2.5,
+		weightLabel: "lb",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "pound-weight-1 weight-sm",
+		weight: 1,
+		weightLabel: "lb",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "pound-weight-0-7-5 weight-sm",
+		weight: 0.75,
+		weightLabel: "lb",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "pound-weight-0-5 weight-sm",
+		weight: 0.5,
+		weightLabel: "lb",
+		plateCount: 0,
+	},
+	{
+		plateClasses: "pound-weight-0-2-5 weight-sm",
+		weight: 0.25,
+		weightLabel: "lb",
+		plateCount: 0,
+	},
+];
+
 const Calculator = (props) => {
 	// state for info section
 	const [infoVisible, setInfoVisibility] = useState({
@@ -117,16 +254,21 @@ const Calculator = (props) => {
 
 	let unitLabel;
 	let barbellDataType;
+	let smallPlateType;
+	let largePlateType;
 	if (unitSelection.selectedUnit === "Pounds") {
 		unitLabel = <span className="total-weight-pounds">lb</span>;
 		barbellDataType = barbellItemsPounds;
+		largePlateType = largePoundPlates;
+		smallPlateType = smallPoundPlates;
 	} else {
 		unitLabel = <span className="total-weight-kilos">kg</span>;
 		barbellDataType = barbellItemsKilos;
+		largePlateType = largeKiloPlates;
+		smallPlateType = smallKiloPlates;
 	}
 
 	// state for barbells
-
 	const [barbellSelection, setBarbellSelection] = useState({
 		selectedBarbell: 45,
 	});
@@ -237,21 +379,29 @@ const Calculator = (props) => {
 
 					<h5>{textContent.platesHeadline}</h5>
 
-					{/* <div className="form-group">
+					<div className="form-group">
 						<ul className="plates large-plates">
-							{largePlates.map((plate) => (
+							{largePlateType.map((plate) => (
 								<Plate
-									bsClasses={plate.bsClasses}
-									isOnBarbell={plate.isOnBarbell}
-									key={plate.poundWeight}
-									kiloWeight={plate.kiloWeight}
+									plateClasses={plate.plateClasses}
+									key={plate.plateClasses}
+									weight={plate.weight}
 									plateCount={plate.plateCount}
-									poundWeight={plate.poundWeight}
+									weightLabel={plate.weightLabel}
+								/>
+							))}
+							{smallPlateType.map((plate) => (
+								<Plate
+									plateClasses={plate.plateClasses}
+									key={plate.plateClasses}
+									weight={plate.weight}
+									plateCount={plate.plateCount}
+									weightLabel={plate.weightLabel}
 								/>
 							))}
 						</ul>
 
-						<ul className="plates small-plates">
+						{/* <ul className="plates small-plates">
 							{smallPlates.map((plate) => (
 								<Plate
 									bsClasses={plate.bsClasses}
@@ -262,8 +412,8 @@ const Calculator = (props) => {
 									poundWeight={plate.poundWeight}
 								/>
 							))}
-						</ul>
-					</div> */}
+						</ul> */}
+					</div>
 				</div>
 			</main>
 			<footer>

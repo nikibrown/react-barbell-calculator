@@ -2,22 +2,23 @@ import React from "react";
 
 const Plate = (props) => {
 	const clickHandler = () => {
-		console.log(props.poundWeight + " was clicked");
+		console.log(props.weight + " was clicked");
 	};
 
 	return (
 		<button
-			className={props.bsClasses}
-			disabled={props.isDisabled}
+			className={`btn btn-plate ${props.plateClasses}`}
+			// className={props.bsClasses}
+			// disabled={props.isDisabled}
 			onClick={clickHandler}>
 			<span>{props.text}</span>
-			<span className="weight weight-pounds">
-				{props.poundWeight}
+			{/* <span className="weight weight-pounds">
+				{props.weight}
 				<span className="weight-label">lb</span>
-			</span>
-			<span className="weight weight-kilos">
-				{props.kiloWeight}
-				<span className="weight-label">kg</span>
+			</span> */}
+			<span className="weight">
+				{props.weight}
+				<span className="weight-label">{props.weightLabel}</span>
 			</span>
 		</button>
 	);

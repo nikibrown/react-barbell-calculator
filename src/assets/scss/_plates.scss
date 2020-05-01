@@ -24,15 +24,16 @@
 	// margin: 5px;
 }
 
-.kilos .kilo-weight-hide {
-	display: none;
-}
+// .kilos .kilo-weight-hide {
+// 	display: none;
+// }
 
 .weight-label {
 	font-size: 10px;
 }
 
-.pound-weight-55 {
+.pound-weight-55,
+.kilo-weight-25 {
 	background-color: $red;
 	border-color: darken($red, 10%);
 	&:hover {
@@ -40,7 +41,8 @@
 	}
 }
 
-.pound-weight-45 {
+.pound-weight-45,
+.kilo-weight-20 {
 	background-color: $blue;
 	border-color: darken($blue, 10%);
 	&:hover {
@@ -48,7 +50,8 @@
 	}
 }
 
-.pound-weight-35 {
+.pound-weight-35,
+.kilo-weight-15 {
 	background-color: $yellow;
 	border-color: darken($yellow, 10%);
 	&:hover {
@@ -56,7 +59,8 @@
 	}
 }
 
-.pound-weight-25 {
+.pound-weight-25,
+.kilo-weight-10 {
 	background-color: $green;
 	border-color: darken($green, 10%);
 	&:hover {
