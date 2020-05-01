@@ -7,7 +7,7 @@ import { settings } from "../assets/data/settings";
 // import { smallPlates, largePlates } from "../assets/data/plates";
 
 import Unit from "./Unit";
-// import Barbell from "./Barbell";
+import Barbell from "./Barbell";
 // import Plate from "./Plate";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -39,7 +39,32 @@ const unitItems = [
 	},
 ];
 
+const barbellItems = [
+	{
+		weight: 45,
+		barbellUnitLabel: "lb",
+		id: "barbell-pounds-45",
+		name: "barbell-radio-selection",
+		defaultChecked: true,
+	},
+	{
+		weight: 35,
+		barbellUnitLabel: "lb",
+		id: "barbell-pounds-35",
+		name: "barbell-radio-selection",
+		defaultChecked: false,
+	},
+	{
+		weight: 15,
+		barbellUnitLabel: "lb",
+		id: "barbell-pounds-15",
+		name: "barbell-radio-selection",
+		defaultChecked: false,
+	},
+];
+
 const Calculator = (props) => {
+	// state for info section
 	const [infoVisible, setInfoVisibility] = useState({
 		showInfo: false,
 	});
@@ -50,6 +75,8 @@ const Calculator = (props) => {
 			showInfo: !infoVisible.showInfo,
 		});
 	};
+
+	// state for units
 
 	const [unitSelection, setUnitSelection] = useState({
 		selectedUnit: "Pounds",
@@ -68,6 +95,19 @@ const Calculator = (props) => {
 	} else {
 		unitLabel = <span className="total-weight-kilos">kg</span>;
 	}
+
+	// state for barbells
+
+	const [barbellSelection, setBarbellSelection] = useState({
+		selectedBarbell: 45,
+	});
+
+	const handleBarbellChange = (changeEvent) => {
+		setBarbellSelection({
+			...barbellSelection,
+			selectedBarbell: changeEvent.target.value,
+		});
+	};
 
 	return (
 		<div id="app">
@@ -136,11 +176,11 @@ const Calculator = (props) => {
 							/>
 						))}
 					</div>
-					{/* <h5>{textContent.barbellHeadline}</h5> */}
+					<h5>{textContent.barbellHeadline}</h5>
 					{/* <p v-if="settings.barbellError" className="error">
-					{{ textContent.barbellErrorText }}
+					{ textContent.barbellErrorText }
 					</p> */}
-					{/* <div className="form-group">
+					<div className="form-group">
 						<ul className="barbells">
 							<div
 								className="barbell-group"
@@ -148,17 +188,23 @@ const Calculator = (props) => {
 								aria-label="Select barbell weight">
 								{barbellItems.map((barbell) => (
 									<Barbell
-										bsClasses={barbell.bsClasses}
-										isDisabled={barbell.isDisabled}
-										key={barbell.poundWeight}
-										kiloWeight={barbell.kiloWeight}
-										poundWeight={barbell.poundWeight}
-										text={barbell.text}
+										handleBarbellChange={
+											handleBarbellChange
+										}
+										key={barbell.id}
+										unitLabel={barbell.unitLabel}
+										name={barbell.name}
+										id={barbell.id}
+										defaultChecked={barbell.defaultChecked}
+										weight={barbell.weight}
+										barbellUnitLabel={
+											barbell.barbellUnitLabel
+										}
 									/>
 								))}
 							</div>
 						</ul>
-					</div> */}
+					</div>
 
 					<h5>{textContent.platesHeadline}</h5>
 

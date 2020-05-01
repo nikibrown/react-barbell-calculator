@@ -1,24 +1,20 @@
 export const barbellItems = [
 	{
-		// TODO: make bsClasses an array to loop through?
-		kiloWeight: 20,
-		poundWeight: 45,
-		text: "",
-		isDisabled: false,
-		bsClasses: "btn btn-md btn-barbell btn-secondary barbell-45"
+		weight: 45,
+		id: "barbell-pounds-45",
+		name: "barbell-radio-selection",
+		defaultChecked: true,
 	},
 	{
-		kiloWeight: 15,
-		poundWeight: 35,
-		text: "",
-		isDisabled: false,
-		bsClasses: "btn btn-md btn-barbell btn-secondary barbell-35"
+		weight: 35,
+		id: "barbell-pounds-35",
+		name: "barbell-radio-selection",
+		defaultChecked: false,
 	},
 	{
-		kiloWeight: 6.8,
-		poundWeight: 15,
-		text: "",
-		isDisabled: false,
-		bsClasses: "btn btn-md btn-barbell btn-secondary barbell-15"
-	}
+		weight: 15,
+		id: "barbell-pounds-15",
+		name: "barbell-radio-selection",
+		defaultChecked: false,
+	},
 ];

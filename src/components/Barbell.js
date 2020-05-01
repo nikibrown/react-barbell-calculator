@@ -1,25 +1,26 @@
 import React from "react";
 
 const Barbell = (props) => {
-	const clickHandler = () => {
-		console.log(props.poundWeight + " was clicked");
-	};
+	// const clickHandler = () => {
+	// 	console.log(props.poundWeight + " was clicked");
+	// };
 
 	return (
-		<button
-			className={props.bsClasses}
-			disabled={props.isDisabled}
-			onClick={clickHandler}>
-			<span>{props.text}</span>
-			<span className="weight weight-pounds">
-				{props.poundWeight}
-				<span className="weight-label">lb</span>
-			</span>
-			<span className="weight weight-kilos">
-				{props.kiloWeight}
-				<span className="weight-label">kg</span>
-			</span>
-		</button>
+		<div className="form-check form-check-inline">
+			<input
+				onChange={props.handleBarbellChange}
+				className="form-check-input"
+				type="radio"
+				name={props.name}
+				id={props.id}
+				value={props.weight}
+				defaultChecked={props.defaultChecked}
+			/>
+			<label className="form-check-label" htmlFor={props.id}>
+				{props.weight}
+				{props.barbellUnitLabel}
+			</label>
+		</div>
 	);
 };
 
