@@ -40,7 +40,16 @@ const unitItems = [
 ];
 
 const Calculator = (props) => {
-	const [infoVisible, setInfoVisibility] = useState(false);
+	const [infoVisible, setInfoVisibility] = useState({
+		showInfo: false,
+	});
+
+	const toggleInfo = () => {
+		setInfoVisibility({
+			...infoVisible,
+			showInfo: !infoVisible.showInfo,
+		});
+	};
 
 	const [unitSelection, setUnitSelection] = useState({
 		selectedUnit: "Pounds",
@@ -55,7 +64,9 @@ const Calculator = (props) => {
 
 	return (
 		<div id="app">
-			<header className={infoVisible ? "show" : "hide"} id="info">
+			<header
+				className={infoVisible.showInfo ? "show" : "hide"}
+				id="info">
 				<nav className="navbar navbar-dark bg-dark">
 					<div className="app-container">
 						<p
@@ -75,7 +86,7 @@ const Calculator = (props) => {
 						</h1>
 						<button
 							className="btn btn-link"
-							onClick={() => setInfoVisibility(!infoVisible)}
+							onClick={() => toggleInfo()}
 							type="button">
 							<FontAwesomeIcon icon={faInfoCircle} />
 						</button>
