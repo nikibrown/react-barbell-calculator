@@ -39,7 +39,7 @@ const unitItems = [
 	},
 ];
 
-const barbellItems = [
+const barbellItemsPounds = [
 	{
 		weight: 45,
 		barbellUnitLabel: "lb",
@@ -61,6 +61,9 @@ const barbellItems = [
 		name: "barbell-radio-selection",
 		defaultChecked: false,
 	},
+];
+
+const barbellItemsKilos = [
 	{
 		weight: 20,
 		barbellUnitLabel: "kg",
@@ -83,30 +86,6 @@ const barbellItems = [
 		defaultChecked: false,
 	},
 ];
-
-// const barbellItemsKilos = [
-// 	{
-// 		weight: 20,
-// 		barbellUnitLabel: "kg",
-// 		id: "barbell-kilos-20",
-// 		name: "barbell-radio-selection",
-// 		defaultChecked: true,
-// 	},
-// 	{
-// 		weight: 15,
-// 		barbellUnitLabel: "kg",
-// 		id: "barbell-kilos-15",
-// 		name: "barbell-radio-selection",
-// 		defaultChecked: false,
-// 	},
-// 	{
-// 		weight: 6.8,
-// 		barbellUnitLabel: "kg",
-// 		id: "barbell-kilos-6-8",
-// 		name: "barbell-radio-selection",
-// 		defaultChecked: false,
-// 	},
-// ];
 
 const Calculator = (props) => {
 	// state for info section
@@ -134,11 +113,16 @@ const Calculator = (props) => {
 		});
 	};
 
+	// logic for unitLabel/barbell data switching
+
 	let unitLabel;
+	let barbellDataType;
 	if (unitSelection.selectedUnit === "Pounds") {
 		unitLabel = <span className="total-weight-pounds">lb</span>;
+		barbellDataType = barbellItemsPounds;
 	} else {
 		unitLabel = <span className="total-weight-kilos">kg</span>;
+		barbellDataType = barbellItemsKilos;
 	}
 
 	// state for barbells
@@ -231,7 +215,7 @@ const Calculator = (props) => {
 								className="barbell-group"
 								role="group"
 								aria-label="Select barbell weight">
-								{barbellItems.map((barbell) => (
+								{barbellDataType.map((barbell) => (
 									<Barbell
 										handleBarbellChange={
 											handleBarbellChange

@@ -2,7 +2,8 @@ import React from "react";
 
 const Barbell = (props) => {
 	return (
-		<div className="form-check form-check-inline">
+		<div
+			className={`form-check form-check-inline ${props.barbellUnitLabel}`}>
 			<input
 				onChange={props.handleBarbellChange}
 				className="form-check-input"
