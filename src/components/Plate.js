@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Plate = (props) => {
 	const clickHandler = () => {
-		console.log(props.weight + " was clicked");
+		console.log("clickhandler ran");
+		setPlateState({
+			...plateState,
+			isOnBarbell: true,
+			plateCount: (plateState.plateCount += 2),
+		});
 	};
 
 	const numberFormatting = (weight) => {
@@ -10,12 +15,10 @@ const Plate = (props) => {
 		return formattedWeight;
 	};
 
-	// bullshitNumberFormating: function(decimalWithFuckingLeadingZero) {
-	// 		let stringWithNoFuckingLeadingZero = decimalWithFuckingLeadingZero
-	// 			.toString()
-	// 			.replace(/^0+/, "");
-	// 		return stringWithNoFuckingLeadingZero;
-	// };
+	const [plateState, setPlateState] = useState({
+		isOnBarbell: false,
+		plateCount: 0,
+	});
 
 	return (
 		<button
@@ -25,9 +28,14 @@ const Plate = (props) => {
 				{numberFormatting(props.weight)}
 				<span className="weight-label">{props.weightLabel}</span>
 			</span>
-			<span class="badge badge-pill badge-danger plate-quantity">
-				{props.plateCount}
-			</span>
+
+			{plateState.isOnBarbell ? (
+				<span className="badge badge-pill badge-danger plate-quantity">
+					{plateState.plateCount}
+				</span>
+			) : (
+				<span></span>
+			)}
 		</button>
 	);
 };

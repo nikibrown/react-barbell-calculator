@@ -89,7 +89,6 @@ const barbellItemsKilos = [
 const largeKiloPlates = [
 	{
 		plateClasses: "kilo-weight-25 weight-lg",
-		plateCount: 0,
 		weight: 25,
 		weightLabel: "kg",
 	},
@@ -97,19 +96,16 @@ const largeKiloPlates = [
 		plateClasses: "kilo-weight-20 weight-lg",
 		weight: 20,
 		weightLabel: "kg",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "kilo-weight-15 weight-lg",
 		weight: 15,
 		weightLabel: "kg",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "kilo-weight-10 weight-lg",
 		weight: 10,
 		weightLabel: "kg",
-		plateCount: 0,
 	},
 ];
 
@@ -118,31 +114,26 @@ const smallKiloPlates = [
 		plateClasses: "kilo-weight-5 weight-sm",
 		weight: 5,
 		weightLabel: "kg",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "kilo-weight-2-5 weight-sm",
 		weight: 2.5,
 		weightLabel: "kg",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "kilo-weight-2 weight-sm",
 		weight: 2,
 		weightLabel: "kg",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "kilo-weight-1 weight-sm",
 		weight: 1,
 		weightLabel: "kg",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "kilo-weight-0-5 weight-sm",
 		weight: 0.5,
 		weightLabel: "kg",
-		plateCount: 0,
 	},
 ];
 
@@ -151,37 +142,31 @@ const largePoundPlates = [
 		plateClasses: "pound-weight-55 weight-lg",
 		weight: 55,
 		weightLabel: "lb",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "pound-weight-45 weight-lg",
 		weight: 45,
 		weightLabel: "lb",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "pound-weight-35 weight-lg",
 		weight: 35,
 		weightLabel: "lb",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "pound-weight-25 weight-lg",
 		weight: 25,
 		weightLabel: "lb",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "pound-weight-15 weight-lg",
 		weight: 15,
 		weightLabel: "lb",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "pound-weight-10 weight-lg",
 		weight: 10,
 		weightLabel: "lb",
-		plateCount: 0,
 	},
 ];
 
@@ -190,37 +175,31 @@ const smallPoundPlates = [
 		plateClasses: "pound-weight-5 weight-sm",
 		weight: 5,
 		weightLabel: "lb",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "pound-weight-2-5 weight-sm",
 		weight: 2.5,
 		weightLabel: "lb",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "pound-weight-1 weight-sm",
 		weight: 1,
 		weightLabel: "lb",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "pound-weight-0-7-5 weight-sm",
 		weight: 0.75,
 		weightLabel: "lb",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "pound-weight-0-5 weight-sm",
 		weight: 0.5,
 		weightLabel: "lb",
-		plateCount: 0,
 	},
 	{
 		plateClasses: "pound-weight-0-2-5 weight-sm",
 		weight: 0.25,
 		weightLabel: "lb",
-		plateCount: 0,
 	},
 ];
 
@@ -250,8 +229,7 @@ const Calculator = (props) => {
 		});
 	};
 
-	// logic for unitLabel/barbell data switching
-
+	// logic for unitLabel/barbell/plate data switching
 	let unitLabel;
 	let barbellDataType;
 	let smallPlateType;
@@ -386,16 +364,16 @@ const Calculator = (props) => {
 									plateClasses={plate.plateClasses}
 									key={plate.plateClasses}
 									weight={plate.weight}
-									plateCount={plate.plateCount}
 									weightLabel={plate.weightLabel}
 								/>
 							))}
 							{smallPlateType.map((plate) => (
 								<Plate
+									isOnBarbell={plate.isOnBarbell}
 									plateClasses={plate.plateClasses}
 									key={plate.plateClasses}
 									weight={plate.weight}
-									plateCount={plate.plateCount}
+									s
 									weightLabel={plate.weightLabel}
 								/>
 							))}
