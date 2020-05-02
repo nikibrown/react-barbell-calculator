@@ -5,18 +5,24 @@ const Plate = (props) => {
 		console.log(props.weight + " was clicked");
 	};
 
+	const numberFormatting = (weight) => {
+		let formattedWeight = weight.toString().replace(/^0+/, "");
+		return formattedWeight;
+	};
+
+	// bullshitNumberFormating: function(decimalWithFuckingLeadingZero) {
+	// 		let stringWithNoFuckingLeadingZero = decimalWithFuckingLeadingZero
+	// 			.toString()
+	// 			.replace(/^0+/, "");
+	// 		return stringWithNoFuckingLeadingZero;
+	// };
+
 	return (
 		<button
 			className={`btn btn-plate ${props.plateClasses}`}
-			// className={props.bsClasses}
-			// disabled={props.isDisabled}
 			onClick={clickHandler}>
-			{/* <span className="weight weight-pounds">
-				{props.weight}
-				<span className="weight-label">lb</span>
-			</span> */}
 			<span className="weight">
-				{props.weight}
+				{numberFormatting(props.weight)}
 				<span className="weight-label">{props.weightLabel}</span>
 			</span>
 			<span class="badge badge-pill badge-danger plate-quantity">
