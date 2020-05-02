@@ -11,7 +11,6 @@ const Plate = (props) => {
 			// className={props.bsClasses}
 			// disabled={props.isDisabled}
 			onClick={clickHandler}>
-			<span>{props.text}</span>
 			{/* <span className="weight weight-pounds">
 				{props.weight}
 				<span className="weight-label">lb</span>
@@ -19,6 +18,9 @@ const Plate = (props) => {
 			<span className="weight">
 				{props.weight}
 				<span className="weight-label">{props.weightLabel}</span>
+			</span>
+			<span class="badge badge-pill badge-danger plate-quantity">
+				{props.plateCount}
 			</span>
 		</button>
 	);
