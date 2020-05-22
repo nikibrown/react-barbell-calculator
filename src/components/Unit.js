@@ -11,6 +11,7 @@ const Unit = (props) => {
 				id={props.id}
 				value={props.unitLabel}
 				defaultChecked={props.defaultChecked}
+				disabled={props.disabled}
 			/>
 			<label className="form-check-label" htmlFor={props.id}>
 				{props.unitLabel}

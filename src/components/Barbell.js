@@ -12,6 +12,7 @@ const Barbell = (props) => {
 				id={props.id}
 				value={props.weight}
 				defaultChecked={props.defaultChecked}
+				disabled={props.disabled}
 			/>
 			<label className="form-check-label" htmlFor={props.id}>
 				{props.weight}

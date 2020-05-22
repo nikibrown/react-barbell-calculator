@@ -20,21 +20,18 @@ const unitItems = [
 	{
 		bsClasses: "btn btn-md btn-secondary unit-pounds",
 		unitLabel: "Pounds",
-		selected: true,
-		isDisabled: true,
+		disabled: false,
 		name: "unit-radio-selection",
 		id: "unit-radio-selection-pounds",
-		defaultChecked: true,
+		defaultChecked: false,
 	},
 	{
-		foo: "foobar2",
 		bsClasses: "btn btn-md btn-secondary unit-kilos",
 		unitLabel: "Kilos",
-		selected: false,
-		isDisabled: true,
+		disabled: false,
 		name: "unit-radio-selection",
 		id: "unit-radio-selection-kilos",
-		isChecked: false,
+		defaultChecked: false,
 	},
 ];
 
@@ -44,7 +41,8 @@ const barbellItemsPounds = [
 		barbellUnitLabel: "lb",
 		id: "barbell-pounds-45",
 		name: "barbell-radio-selection",
-		defaultChecked: true,
+		defaultChecked: false,
+		disabled: false,
 	},
 	{
 		weight: 35,
@@ -52,6 +50,7 @@ const barbellItemsPounds = [
 		id: "barbell-pounds-35",
 		name: "barbell-radio-selection",
 		defaultChecked: false,
+		disabled: false,
 	},
 	{
 		weight: 15,
@@ -59,6 +58,7 @@ const barbellItemsPounds = [
 		id: "barbell-pounds-15",
 		name: "barbell-radio-selection",
 		defaultChecked: false,
+		disabled: false,
 	},
 ];
 
@@ -69,6 +69,7 @@ const barbellItemsKilos = [
 		id: "barbell-kilos-20",
 		name: "barbell-radio-selection",
 		defaultChecked: false,
+		disabled: false,
 	},
 	{
 		weight: 15,
@@ -76,6 +77,7 @@ const barbellItemsKilos = [
 		id: "barbell-kilos-15",
 		name: "barbell-radio-selection",
 		defaultChecked: false,
+		disabled: false,
 	},
 	{
 		weight: 6.8,
@@ -83,6 +85,7 @@ const barbellItemsKilos = [
 		id: "barbell-kilos-6-8",
 		name: "barbell-radio-selection",
 		defaultChecked: false,
+		disabled: false,
 	},
 ];
 
@@ -91,21 +94,25 @@ const largeKiloPlates = [
 		plateClasses: "kilo-weight-25 weight-lg",
 		weight: 25,
 		weightLabel: "kg",
+		id: "kilo-weight-25",
 	},
 	{
 		plateClasses: "kilo-weight-20 weight-lg",
 		weight: 20,
 		weightLabel: "kg",
+		id: "kilo-weight-20",
 	},
 	{
 		plateClasses: "kilo-weight-15 weight-lg",
 		weight: 15,
 		weightLabel: "kg",
+		id: "kilo-weight-15",
 	},
 	{
 		plateClasses: "kilo-weight-10 weight-lg",
 		weight: 10,
 		weightLabel: "kg",
+		id: "kilo-weight-10",
 	},
 ];
 
@@ -114,26 +121,31 @@ const smallKiloPlates = [
 		plateClasses: "kilo-weight-5 weight-sm",
 		weight: 5,
 		weightLabel: "kg",
+		id: "kilo-weight-5",
 	},
 	{
 		plateClasses: "kilo-weight-2-5 weight-sm",
 		weight: 2.5,
 		weightLabel: "kg",
+		id: "kilo-weight-2-5",
 	},
 	{
 		plateClasses: "kilo-weight-2 weight-sm",
 		weight: 2,
 		weightLabel: "kg",
+		id: "kilo-weight-2",
 	},
 	{
 		plateClasses: "kilo-weight-1 weight-sm",
 		weight: 1,
 		weightLabel: "kg",
+		id: "kilo-weight-1",
 	},
 	{
 		plateClasses: "kilo-weight-0-5 weight-sm",
 		weight: 0.5,
 		weightLabel: "kg",
+		id: "kilo-weight-0-5",
 	},
 ];
 
@@ -142,31 +154,37 @@ const largePoundPlates = [
 		plateClasses: "pound-weight-55 weight-lg",
 		weight: 55,
 		weightLabel: "lb",
+		id: "pound-weight-55",
 	},
 	{
 		plateClasses: "pound-weight-45 weight-lg",
 		weight: 45,
 		weightLabel: "lb",
+		id: "pound-weight-45",
 	},
 	{
 		plateClasses: "pound-weight-35 weight-lg",
 		weight: 35,
 		weightLabel: "lb",
+		id: "pound-weight-35",
 	},
 	{
 		plateClasses: "pound-weight-25 weight-lg",
 		weight: 25,
 		weightLabel: "lb",
+		id: "pound-weight-25",
 	},
 	{
 		plateClasses: "pound-weight-15 weight-lg",
 		weight: 15,
 		weightLabel: "lb",
+		id: "pound-weight-15",
 	},
 	{
 		plateClasses: "pound-weight-10 weight-lg",
 		weight: 10,
 		weightLabel: "lb",
+		id: "pound-weight-10",
 	},
 ];
 
@@ -175,31 +193,37 @@ const smallPoundPlates = [
 		plateClasses: "pound-weight-5 weight-sm",
 		weight: 5,
 		weightLabel: "lb",
+		id: "pound-weight-5",
 	},
 	{
 		plateClasses: "pound-weight-2-5 weight-sm",
 		weight: 2.5,
 		weightLabel: "lb",
+		id: "pound-weight-2-5",
 	},
 	{
 		plateClasses: "pound-weight-1 weight-sm",
 		weight: 1,
 		weightLabel: "lb",
+		id: "pound-weight-1",
 	},
 	{
 		plateClasses: "pound-weight-0-7-5 weight-sm",
 		weight: 0.75,
 		weightLabel: "lb",
+		id: "pound-weight-0-7-5",
 	},
 	{
 		plateClasses: "pound-weight-0-5 weight-sm",
 		weight: 0.5,
 		weightLabel: "lb",
+		id: "pound-weight-0-5",
 	},
 	{
 		plateClasses: "pound-weight-0-2-5 weight-sm",
 		weight: 0.25,
 		weightLabel: "lb",
+		id: "pound-weight-0-2-5",
 	},
 ];
 
@@ -227,6 +251,13 @@ const Calculator = (props) => {
 			...unitSelection,
 			selectedUnit: changeEvent.target.value,
 		});
+		disableUnitSelection();
+	};
+
+	const disableUnitSelection = () => {
+		unitItems.forEach((unit) => {
+			unit.disabled = true;
+		});
 	};
 
 	// logic for unitLabel/barbell/plate data switching
@@ -248,7 +279,7 @@ const Calculator = (props) => {
 
 	// state for barbells
 	const [barbellSelection, setBarbellSelection] = useState({
-		selectedBarbell: 45,
+		selectedBarbell: 0,
 	});
 
 	const handleBarbellChange = (changeEvent) => {
@@ -256,6 +287,55 @@ const Calculator = (props) => {
 			...barbellSelection,
 			selectedBarbell: changeEvent.target.value,
 		});
+
+		addBarbellWeight(changeEvent.target.value);
+		disableBarbellSelection();
+	};
+
+	const disableBarbellSelection = () => {
+		barbellItemsPounds.forEach((barbell) => {
+			barbell.disabled = true;
+		});
+		barbellItemsKilos.forEach((barbell) => {
+			barbell.disabled = true;
+		});
+	};
+
+	// state for totalWeight
+
+	const [totalWeight, setTotalWeight] = useState({
+		totalWeightadded: 0,
+	});
+
+	const addBarbellWeight = (barbellWeight) => {
+		let updatedWeight =
+			parseInt(barbellWeight, 10) +
+			parseInt(totalWeight.totalWeightadded, 10);
+
+		// add barbell weight
+		setTotalWeight({
+			...totalWeight,
+			totalWeightadded: updatedWeight,
+		});
+	};
+
+	const addPlateWeight = (plateWeight) => {
+		let updatedPlateWeight =
+			parseInt(totalWeight.totalWeightadded, 10) + plateWeight * 2;
+		console.log(updatedPlateWeight);
+
+		setTotalWeight({
+			...totalWeight,
+			totalWeightadded: updatedPlateWeight,
+		});
+	};
+
+	// state for plates
+
+	const handlePlateAdd = (index) => {
+		// need conditional for plate type? or just make all the plates
+		addPlateWeight(largePlateType[index].weight);
+		//addPlateWeight(smallPlateType[index].weight);
 	};
 
 	return (
@@ -294,7 +374,9 @@ const Calculator = (props) => {
 					<div className="app-container justify-content-between">
 						<nav className="navbar navbar-light navbar-total-weight">
 							<h1>
-								{settings.totalWeight}
+								{/* {settings.totalWeight} */}
+
+								{totalWeight.totalWeightadded}
 
 								{unitLabel}
 							</h1>
@@ -322,6 +404,7 @@ const Calculator = (props) => {
 								name={unit.name}
 								id={unit.id}
 								defaultChecked={unit.defaultChecked}
+								disabled={unit.disabled}
 							/>
 						))}
 					</div>
@@ -349,6 +432,7 @@ const Calculator = (props) => {
 										barbellUnitLabel={
 											barbell.barbellUnitLabel
 										}
+										disabled={barbell.disabled}
 									/>
 								))}
 							</div>
@@ -359,38 +443,28 @@ const Calculator = (props) => {
 
 					<div className="form-group">
 						<ul className="plates large-plates">
-							{largePlateType.map((plate) => (
+							{largePlateType.map((plate, index) => (
 								<Plate
+									handlePlateAdd={() => handlePlateAdd(index)}
 									plateClasses={plate.plateClasses}
-									key={plate.plateClasses}
+									key={index}
 									weight={plate.weight}
-									weightLabel={plate.weightLabel}
-								/>
-							))}
-							{smallPlateType.map((plate) => (
-								<Plate
-									isOnBarbell={plate.isOnBarbell}
-									plateClasses={plate.plateClasses}
-									key={plate.plateClasses}
-									weight={plate.weight}
-									s
 									weightLabel={plate.weightLabel}
 								/>
 							))}
 						</ul>
 
-						{/* <ul className="plates small-plates">
-							{smallPlates.map((plate) => (
+						<ul className="plates small-plates">
+							{smallPlateType.map((plate, index) => (
 								<Plate
-									bsClasses={plate.bsClasses}
-									isOnBarbell={plate.isOnBarbell}
-									key={plate.poundWeight}
-									kiloWeight={plate.kiloWeight}
-									plateCount={plate.plateCount}
-									poundWeight={plate.poundWeight}
+									handlePlateAdd={() => handlePlateAdd(index)}
+									plateClasses={plate.plateClasses}
+									key={index}
+									weight={plate.weight}
+									weightLabel={plate.weightLabel}
 								/>
 							))}
-						</ul> */}
+						</ul>
 					</div>
 				</div>
 			</main>

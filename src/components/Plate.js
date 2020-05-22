@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Plate = (props) => {
-	const clickHandler = () => {
+	const handlePlateCount = () => {
 		console.log("clickhandler ran");
 		setPlateState({
 			...plateState,
@@ -23,7 +23,10 @@ const Plate = (props) => {
 	return (
 		<button
 			className={`btn btn-plate ${props.plateClasses}`}
-			onClick={clickHandler}>
+			onClick={() => {
+				props.handlePlateAdd();
+				handlePlateCount();
+			}}>
 			<span className="weight">
 				{numberFormatting(props.weight)}
 				<span className="weight-label">{props.weightLabel}</span>
