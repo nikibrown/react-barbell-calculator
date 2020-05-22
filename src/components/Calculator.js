@@ -332,10 +332,12 @@ const Calculator = (props) => {
 
 	// state for plates
 
-	const handlePlateAdd = (index) => {
-		// need conditional for plate type? or just make all the plates
-		addPlateWeight(largePlateType[index].weight);
-		//addPlateWeight(smallPlateType[index].weight);
+	const handlePlateAdd = (index, plateType) => {
+		if (plateType === "large") {
+			addPlateWeight(largePlateType[index].weight);
+		} else {
+			addPlateWeight(smallPlateType[index].weight);
+		}
 	};
 
 	return (
@@ -445,7 +447,9 @@ const Calculator = (props) => {
 						<ul className="plates large-plates">
 							{largePlateType.map((plate, index) => (
 								<Plate
-									handlePlateAdd={() => handlePlateAdd(index)}
+									handlePlateAdd={() =>
+										handlePlateAdd(index, "large")
+									}
 									plateClasses={plate.plateClasses}
 									key={index}
 									weight={plate.weight}
@@ -457,7 +461,9 @@ const Calculator = (props) => {
 						<ul className="plates small-plates">
 							{smallPlateType.map((plate, index) => (
 								<Plate
-									handlePlateAdd={() => handlePlateAdd(index)}
+									handlePlateAdd={() =>
+										handlePlateAdd(index, "small")
+									}
 									plateClasses={plate.plateClasses}
 									key={index}
 									weight={plate.weight}
@@ -478,7 +484,7 @@ const Calculator = (props) => {
 								}}></span>
 							<FontAwesomeIcon icon={["fab", "react"]} />
 							<a
-								href="https://github.com/nikibrown/vue-barbell-calculator"
+								href="https://github.com/nikibrown/react-barbell-calculator"
 								target="_blank"
 								rel="noopener noreferrer">
 								<FontAwesomeIcon icon={["fab", "github"]} />
