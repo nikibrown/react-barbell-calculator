@@ -240,6 +240,26 @@ const Calculator = (props) => {
 		});
 	};
 
+	const resetTotalWeight = () => {
+		setTotalWeight({
+			...totalWeight,
+			totalWeightadded: 0,
+		});
+
+		setBarbellSelection({
+			...barbellSelection,
+			selectedBarbell: 0,
+		});
+
+		setUnitSelection({
+			...unitSelection,
+			selectedUnit: "Pounds",
+		});
+
+		enableBarbellSelection();
+		enableUnitSelection();
+	};
+
 	// state for units
 
 	const [unitSelection, setUnitSelection] = useState({
@@ -257,6 +277,12 @@ const Calculator = (props) => {
 	const disableUnitSelection = () => {
 		unitItems.forEach((unit) => {
 			unit.disabled = true;
+		});
+	};
+
+	const enableUnitSelection = () => {
+		unitItems.forEach((unit) => {
+			unit.disabled = false;
 		});
 	};
 
@@ -300,6 +326,19 @@ const Calculator = (props) => {
 			barbell.disabled = true;
 		});
 	};
+
+	const enableBarbellSelection = () => {
+		barbellItemsPounds.forEach((barbell) => {
+			barbell.disabled = false;
+		});
+		barbellItemsKilos.forEach((barbell) => {
+			barbell.disabled = false;
+		});
+	};
+
+	// state for selectedPlates
+
+	const [plateSelection, setPlateSelection] = useState({});
 
 	// state for totalWeight
 
@@ -384,7 +423,9 @@ const Calculator = (props) => {
 							</h1>
 
 							<button
-								// @click="resetTotalWeight"
+								onClick={() => {
+									resetTotalWeight();
+								}}
 								className="btn btn-secondary btn-danger btn-sm">
 								<FontAwesomeIcon icon={faUndo} />
 							</button>
